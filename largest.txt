@@ -1,0 +1,53 @@
+
+class Nt{
+    public:
+    int mini;
+    int maxi;
+    bool isBST;
+    int size;
+    
+    Node(int mini,int maxi,bool isBST,int size){
+        this->mini=mini;
+        this->maxi=maxi;
+        this->isBST= true;
+        }
+}
+
+Nt solve (Node* root,int &ans){
+
+    if(root==NULL){
+        return {INT_MIN, INT_MAX,true,0};
+    }
+    
+    Nt left= solve(root->left,ans);
+    Nt right=solve(root->right,ans);
+    
+    Nt currnode;
+    
+    currnode.size= left.size +right.size;
+    currnode.maxi= max(root->data,right.maxi);
+    currnode.mini= min(root->data,left.mini);
+    
+    if(left.isBST && rightBST && root->data > left.maxi && root->data < right.mini){
+        currnode.isBST= true;
+    }
+    else{
+        currnode.isBSt=false;
+    }
+    // answer update
+    
+    if(currnode.isBST){
+        ans= max(ans, currnode.size);
+    }
+    return currnode;
+    
+}
+
+
+int largestBST(Node* root){
+    int maxsize=0;
+    Nt temp = solve(root,maxsize);
+    return maxsize;
+}
+
+
