@@ -1,0 +1,60 @@
+int  minival(Node* root){
+    
+    Node* temp= root;
+    
+    while(temp->left!=NULL){
+        temp=temp->left;
+    }
+    return temp->data;
+}
+
+
+Node *deleteNode(Node *root, int X) {
+    
+    if(root==NULL){
+        return root;
+    }
+    
+    
+    if(root->data==X){
+        // 0 child
+        
+        if(root->left==NULL && root->right==NULL){
+            delete root;
+            return NULL;
+        }
+        
+        // 1 child
+        
+        if(root->left!=NULL && root->right==NULL){
+            Node* temp=root->left;
+            delete root;
+            return temp;
+        }
+        if(root->left==NULL && root->right!=NULL){
+            Node* temp= root->right;
+            delete root;
+            return temp;
+        }
+        // 2 child
+        
+        if(root->left!=NULL && root->right!=NULL){
+            int mini= minival(root->right);
+            
+            // cout<<mini;
+            root->data=mini;
+            root->right=deleteNode(root->right,mini);
+            return root;
+        }
+        
+    }
+    
+    
+    if(X < root->data){
+        root->left=deleteNode(root->left,X);
+        // return root;
+    }else{
+        root->right= deleteNode(root->right,X);
+        // return root;
+    }
+    
