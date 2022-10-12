@@ -1,0 +1,49 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+
+class hero{
+    private:
+    int health;
+    int vest;
+    
+    
+    public:
+    char level;
+    
+    void print (){
+        cout<<level<<endl;
+    }
+    
+    int gethealth(){
+        return health;
+    }
+    
+    void sethealth(int h){
+        health=h;
+    }
+    
+    int getvest(){
+        return vest;
+    }
+    
+    void setvest(int v){
+        vest=v;
+    }
+};
+
+int main() {
+    hero obj;
+    obj.sethealth(30);
+    // obj.level ='A';
+    obj.setvest(80);
+ 
+    cout<< "health"<< obj.gethealth() <<endl;
+    cout<<" level "<< obj.level <<endl;
+    cout<<" vest" << obj.getvest();
+
+    // cout<< sizeof(obj);
+
+    return 0;
+}
