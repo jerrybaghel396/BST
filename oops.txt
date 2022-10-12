@@ -46,4 +46,26 @@ int main() {
     // cout<< sizeof(obj);
 
     return 0;
+
+	
+	
+	
+	
+	// static allocation
+    hero obj;
+    obj.level='A';
+    obj.sethealth(80);
+    cout<< "level"<<obj.level<<endl;
+    cout<<obj.gethealth()<<endl;
+    
+    	// dynamically 
+    hero *b=new hero;
+    b->level='B';
+    b->sethealth(60);
+    cout<< (*b).level<<endl;
+    cout<<(*b).gethealth()<<endl;
+    
+
+
+
 }
