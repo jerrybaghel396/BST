@@ -1,0 +1,34 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+class hero{
+  public:
+  int health;
+  
+  static int timetocomplete;
+  
+  static int random(){
+      return timetocomplete;
+  }
+  
+};
+
+int hero :: timetocomplete = 30;
+
+int main() {
+    
+    
+ cout<<hero:: random()<<endl;
+  cout<<hero :: timetocomplete<<endl;
+  
+  hero a;
+  cout<< a.timetocomplete<<endl;
+  
+  hero b;
+  b.timetocomplete= 10;
+  cout<<b.timetocomplete<<endl;
+  cout<<a.timetocomplete<<endl;
+
+    return 0;
+}
